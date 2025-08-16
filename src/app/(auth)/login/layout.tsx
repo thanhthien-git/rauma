@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import ClientHeader from "@/components/layouts/client/header";
-import ClientFooter from "@/components/layouts/client/footer";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
 export const metadata: Metadata = {
-  title: "RAUMA Merce",
+  title: "Login - RAUMA Merce",
 };
 
-export default function RootLayout({
+export default function LoginLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-satoshi">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <header>
-            <ClientHeader />
-          </header>
           {children}
-          <footer>
-            <ClientFooter />
-          </footer>
         </ThemeProvider>
       </body>
     </html>
