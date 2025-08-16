@@ -6,6 +6,7 @@ interface CartItemProps {
 }
 
 export default function QuickCartItem({ props }: Readonly<CartItemProps>) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { product, price, productId } = props;
   return (
     <div className="flex items-center justify-between">

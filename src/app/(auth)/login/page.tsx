@@ -1,7 +1,6 @@
 "use client";
 
 import { RefreshCcw, ShieldCheck, Tag, Truck } from "lucide-react";
-import { useState } from "react";
 
 export default function LoginPage() {
   return (
@@ -141,7 +140,7 @@ export default function LoginPage() {
         {/* Register */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <a
               href="/register"
               className="text-gray-900 font-bold hover:text-gray-700 transition-colors duration-200 underline decoration-gray-400 hover:decoration-gray-700 underline-offset-2"

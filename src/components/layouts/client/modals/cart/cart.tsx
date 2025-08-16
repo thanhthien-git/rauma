@@ -6,6 +6,7 @@ import { ShoppingCart } from "lucide-react";
 import QuickCartItem from "./cart-item";
 
 export default function QuickCart() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [products, setProducts] = useState<IQuickCart[]>([
     { productId: "1", product: "1", price: 121 },
     { productId: "2", product: "2", price: 122 },

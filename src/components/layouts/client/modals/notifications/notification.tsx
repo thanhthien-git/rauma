@@ -6,6 +6,7 @@ import { INotification } from "@/interfaces/INotification";
 import NotificationItem from "./notification-item";
 
 export default function QuickNotification() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [notification, setNotification] = useState<INotification[]>([
     {
       content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
