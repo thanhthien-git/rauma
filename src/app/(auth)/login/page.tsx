@@ -64,7 +64,7 @@ export default function LoginPage() {
       </div>
 
       {/* RIGHT - White Background + Login Form */}
-      <div className="flex flex-col justify-center w-full lg:w-auto lg:min-w-[640px] px-12 py-16 bg-white relative z-10">
+      <div className="flex flex-col justify-center w-full lg:w-auto lg:min-w-[640px'] px-12 py-16 bg-white relative z-10">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-3">
           {" "}
           Welcome back!{" "}
