@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ClientHeader from "@/components/layouts/client/header";
 import ClientFooter from "@/components/layouts/client/footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
@@ -17,9 +16,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-satoshi">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <header>
-            <ClientHeader />
-          </header>
           {children}
           <footer>
             <ClientFooter />
