@@ -2,20 +2,28 @@
 
 Rauma is an E-Commerce web application built with Next.js, TypeScript, and Tailwind CSS, designed to provide a smooth and efficient user experience.
 
-![Rauma Logo](public/assets/logo.svg)
+<p align="center">
+  <img src="public/assets/logo_white_bg.svg" alt="Rauma Logo" width="400"/>
+</p>
+
+<p align="center">
+  <span style="font-size:20px; font-weight:bold;">R</span>eliable products &nbsp;•&nbsp;
+  <span style="font-size:20px; font-weight:bold;">A</span>ffordable value &nbsp;•&nbsp;
+  <span style="font-size:20px; font-weight:bold;">U</span>nique style &nbsp;•&nbsp;
+  <span style="font-size:20px; font-weight:bold;">M</span>odern &nbsp;•&nbsp;
+  <span style="font-size:20px; font-weight:bold;">A</span>mazing
+</p>
 
 ## 🛠️ Tech Stack
 
-<p align="center">
-  [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-  [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-  [![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/)
-  [![Husky](https://img.shields.io/badge/Husky-000000?style=for-the-badge&logo=git&logoColor=white)](https://typicode.github.io/husky/#/)
-  [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
-  [![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white)](https://prettier.io/)
-</p>
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/) &nbsp;
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) &nbsp;
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) &nbsp;
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/) &nbsp;
+[![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)](https://redux.js.org/) &nbsp;
+[![Husky](https://img.shields.io/badge/Husky-000000?style=for-the-badge&logo=git&logoColor=white)](https://typicode.github.io/husky/#/) &nbsp;
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/) &nbsp;
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white)](https://prettier.io/)
 
 ## 🚀 Installation and Running the Project
 
