@@ -53,7 +53,7 @@ export default function ProductCarousel({
                 itemsPerView === 4 && "grid-cols-4",
                 itemsPerView === 6 && "grid-cols-6"
               )}
-              style={{ width: `${100 / totalSlides}%` }}
+              style={{ width: `${100 / totalSlides}%` }} 
             >
               {products
                 .slice(
