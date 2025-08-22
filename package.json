@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "precommit-check": "npm run build"
+    "precommit-check": "echo Running precommit check && npm run build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
