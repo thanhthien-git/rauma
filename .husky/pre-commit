@@ -1,0 +1,3 @@
+#!/bin/sh
+# Chạy build trước commit
+npm run precommit-check

@@ -13,7 +13,7 @@ import {
 
 export default function ClientFooter() {
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 border-t ">
+    <div className="bg-white dark:bg-gray-900 border-t ">
       <div className="container mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo + About */}
         <div>

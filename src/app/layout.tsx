@@ -16,10 +16,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-satoshi">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
-          <footer>
-            <ClientFooter />
-          </footer>
+          <div className="flex min-h-screen flex-col bg-gray-100">
+            <main className="flex-1">{children}</main>
+            <footer className="mt-auto">
+              <ClientFooter />
+            </footer>
+          </div>
         </ThemeProvider>
       </body>
     </html>
