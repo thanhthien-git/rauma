@@ -1,7 +1,19 @@
 # Rauma
 
-Rauma is a E-Cormerce web application built with Next.js, TypeScript, and Tailwind CSS, designed to provide a smooth and efficient user experience.
+Rauma is an E-Commerce web application built with Next.js, TypeScript, and Tailwind CSS, designed to provide a smooth and efficient user experience.
+
 ![Rauma Logo](public/assets/logo.svg)
+
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/nextjs/nextjs.png" alt="Next.js" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" alt="TypeScript" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/tailwind/tailwind.png" alt="Tailwind CSS" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="50" height="50"/>
+  <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="Node.js" width="50" height="50"/>
+</p>
+
 ## 🚀 Installation and Running the Project
 
 ### 1. Install Dependencies
