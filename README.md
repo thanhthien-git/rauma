@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rauma
 
-## Getting Started
+Rauma is a E-Cormerce web application built with Next.js, TypeScript, and Tailwind CSS, designed to provide a smooth and efficient user experience.
+![Rauma Logo](public/logo.svg)
+## 🚀 Installation and Running the Project
 
-First, run the development server:
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the Application in Development Mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, open your browser and go to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build the Application for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### 4. Start the Application in Production Mode
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Pre-commit Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To ensure code quality, the project runs the following checks automatically before every commit:
 
-## Deploy on Vercel
+- TypeScript type checking
+- ESLint code linting
+- Application build check to catch compilation errors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If any check fails, the commit will be aborted, and an error message will be displayed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tools and Libraries
+
+- **Next.js**: A React framework for modern web applications.
+- **TypeScript**: A typed superset of JavaScript for better code quality.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **Husky**: Tool for running Git hooks to enforce code quality before commits.
+- **ESLint**: Code analysis tool to find and fix problems in the code.
+- **Prettier**: Automatic code formatter.
+
+## 📁 Project Structure
+
+- `src/`: Contains the application source code.
+
+  - `components/`: UI components.
+  - `hooks/`: Custom React hooks.
+  - `interfaces/`: TypeScript type definitions.
+  - `pages/`: Application pages.
+  - `styles/`: CSS files.
+
+- `public/`: Static assets such as images and icons.
+- `.husky/`: Git hooks configuration.
+- `package.json`: Project dependencies and scripts.
+- `tsconfig.json`: TypeScript configuration.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
