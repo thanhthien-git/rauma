@@ -1,7 +1,7 @@
 # Rauma
 
 Rauma is a E-Cormerce web application built with Next.js, TypeScript, and Tailwind CSS, designed to provide a smooth and efficient user experience.
-![Rauma Logo](public/logo.svg)
+![Rauma Logo](public/assets/logo.svg)
 ## 🚀 Installation and Running the Project
 
 ### 1. Install Dependencies
