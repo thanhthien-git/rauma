@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: "Rauma – E-Commerce",
     description: "Gì cũng có, mua hết ở RAUMA",
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -22,6 +25,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://rauma.vercel.app",
+              name: "Rauma",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://rauma.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="font-satoshi">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <div className="flex min-h-screen flex-col bg-gray-100">

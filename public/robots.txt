@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://rauma.vercel.app
+
+# Sitemaps
 Sitemap: https://rauma.vercel.app/sitemap.xml
