@@ -19,3 +19,10 @@ export const toVND = (price: number) => {
     currency: "VND",
   }).format(price);
 };
+
+export const slugAndId = (productName: string, id: string) => {
+  return `${productName
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "")}.${id}`;
+};

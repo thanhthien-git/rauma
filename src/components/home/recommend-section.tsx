@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import useScreen from "@/hooks/useScreen";
 import { Card, CardContent, CardHeader } from "../ui/card";
-import ProductCarousel from "../ui/product/flashsale-product-carousel";
-import Timer from "./timer";
+import ProductList from "../ui/product/product-list";
+import { useMemo } from "react";
 
 const products = [
   {
@@ -118,24 +118,17 @@ const products = [
   },
 ];
 
-const THREE_HOURS = 3 * 60 * 60 * 1000;
-
-export default function ClientFlashsaleSection() {
-  const THREE_HOURS = 3 * 60 * 60 * 1000;
-  const startFrom = Date.now();
-  const endTimestamp = startFrom + THREE_HOURS;
-
+export default function ClientRecommendSection() {
   return (
     <Card className="border-0 shadow-none dark:bg-gray-950 rounded-t-2xl p-0 bg-card-0 gap-0">
-      <CardHeader className="flex items-center justify-between bg-white p-4 ">
+      <CardHeader className="flex items-center justify-between bg-white p-4 lg:sticky lg:top-24 lg:z-20 shadow-lg">
         <h1 className="font-spring text-2xl text-gray-900 dark:text-gray-100">
-          FLASH SALE
+          DAILY RECOMMENDATION
         </h1>
-        <Timer startFromTimeStamp={endTimestamp} />
       </CardHeader>
 
-      <CardContent className="p-0 bg-white">
-        <ProductCarousel products={products} />
+      <CardContent className="p-0">
+        <ProductList products={products} />
       </CardContent>
     </Card>
   );

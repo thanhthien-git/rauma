@@ -35,7 +35,7 @@ export default function ProductCarousel({
   }, [totalSlides]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full px-4 pb-4">
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
@@ -53,7 +53,7 @@ export default function ProductCarousel({
                 itemsPerView === 4 && "grid-cols-4",
                 itemsPerView === 6 && "grid-cols-6"
               )}
-              style={{ width: `${100 / totalSlides}%` }} 
+              style={{ width: `${100 / totalSlides}%` }}
             >
               {products
                 .slice(

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rauma.vercel.app/sitemap.xml

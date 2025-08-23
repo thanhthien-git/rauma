@@ -14,7 +14,7 @@ export default function ClientHeader() {
     <div className="w-full border-b bg-white dark:bg-gray-900">
       <div className="container mx-auto flex h-24 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="hidden sm:flex items-center gap-2">
           <Image
             src="/assets/logo.svg"
             alt="RAUMA Merce"

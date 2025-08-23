@@ -5,6 +5,14 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 
 export const metadata: Metadata = {
   title: "RAUMA Merce",
+  metadataBase: new URL("https://rauma.vercel.app"),
+  description: "Gì cũng có, mua hết ở RAUMA",
+  openGraph: {
+    url: "https://rauma.vercel.app",
+    siteName: "Rauma",
+    title: "Rauma – E-Commerce",
+    description: "Gì cũng có, mua hết ở RAUMA",
+  },
 };
 
 export default function RootLayout({
