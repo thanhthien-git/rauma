@@ -12,8 +12,8 @@ export default function LogoLoader({
   return (
     <div
       className={`flex items-center justify-center ${
-        isFullScreen ? "fixed inset-0 z-50 bg-white" : "absolute inset-0 p-6"
-      }`}
+        isFullScreen ? "fixed inset-0 z-50" : "absolute inset-0 p-6 "
+      } bg-white`}
     >
       <svg
         width="500"
