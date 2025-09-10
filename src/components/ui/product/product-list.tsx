@@ -31,7 +31,7 @@ export default function ProductList({ products }: Readonly<IProductListProps>) {
           </div>
         )}
       </div>
-      <div>
+      <div className="p-4">
         <PaginationComponent
           totalPages={10}
           currentPage={1}
