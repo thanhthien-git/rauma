@@ -49,7 +49,7 @@ export default function RootLayout({
           <ReduxProvider>
             <div className="flex flex-col bg-gray-100 min-h-screen">
               <main className="flex-grow">{children}</main>
-              <footer className="mt-auto">
+              <footer className="mt-auto pt-5">
                 <ClientFooter />
               </footer>
             </div>

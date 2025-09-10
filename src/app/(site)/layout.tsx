@@ -34,9 +34,7 @@ export default function SiteLayout({
         <ClientHeader />
       </header>
 
-      <main className="container mx-auto flex-1 p-0 md:p-4">
-        {isLoading ? <LogoLoader /> : children}
-      </main>
+      <main className="container mx-auto flex-1 p-0 ">{isLoading ? <LogoLoader /> : children}</main>
     </div>
   )
 }

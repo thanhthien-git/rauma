@@ -9,17 +9,14 @@ export default function AnnouncementBar() {
   if (!visible) return null
 
   return (
-    <div className="sticky top-0 left-0 w-full bg-black text-white text-sm py-2 px-4 flex items-center justify-center z-50">
+    <div className="relative flex justify-center items-center w-full bg-black text-white text-sm py-2 px-4">
       <p>
         Sign up and get <span className="font-semibold">20% off</span> to your first order.{' '}
         <a href="/register" className="underline hover:text-gray-300">
           Sign Up Now
         </a>
       </p>
-      <button
-        onClick={() => setVisible(false)}
-        className="absolute right-4 top-1/2 -translate-y-1/2"
-      >
+      <button onClick={() => setVisible(false)} className="absolute right-4">
         <X className="h-4 w-4" />
       </button>
     </div>
