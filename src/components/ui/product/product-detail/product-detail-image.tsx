@@ -38,8 +38,8 @@ export default function ProductDetailImages({ urls }: Readonly<ProductImagesCaro
       <div className="w-full flex justify-center">
         <Swiper spaceBetween={10} onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}>
           {urls.map((src) => (
-            <SwiperSlide key={src}>
-              <img src={src} alt={`thumb-${src}`} className="w-[100vw] h-[100vw] object-cover" />
+            <SwiperSlide key={crypto.randomUUID()}>
+              <img src={src} className="w-[100vw] h-[100vw] object-cover" />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -70,7 +70,7 @@ export default function ProductDetailImages({ urls }: Readonly<ProductImagesCaro
           >
             {urls.map((src, idx) => (
               <button
-                key={src}
+                key={crypto.randomUUID()}
                 onClick={() => handleSetIndex(idx)}
                 className={clsx(
                   'w-[150px] h-[150px] rounded-lg cursor-pointer overflow-hidden border border-solid transform transition-all duration-200 active:scale-95',
