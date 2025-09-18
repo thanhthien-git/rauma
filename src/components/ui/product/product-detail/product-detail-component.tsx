@@ -213,16 +213,14 @@ const mockApi: IProductResponse = {
 export default function ProductDetailComponent() {
   const { product, skus } = mockApi
   const thumbnails = useMemo(() => {
-    return Array.from(
-      new Set([...product.media.map((m) => m.url), ...skus.flatMap((sku) => sku.images)]),
-    )
+    return Array.from([...product.media.map((m) => m.url), ...skus.flatMap((sku) => sku.images)])
   }, [product.media, skus])
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
       <div className="col-span-1 md:col-span-3">
         <ProductDetailImages urls={thumbnails} />
       </div>
-      <div className="col-span-1 md:col-span-2">
+      <div className="col-span-1 md:col-span-2 p-4 sm:p-0">
         <ProductDetailContent details={mockApi} />
       </div>
     </div>

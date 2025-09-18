@@ -1,25 +1,22 @@
 import { IProductResponse } from '@/interfaces/products/IProduct'
 import { toVND } from '@/utils/utils'
-import clsx from 'clsx'
-import {
-  CreditCard,
-  MessageCircle,
-  MessageCircleMore,
-  Minus,
-  Plus,
-  ShoppingCart,
-  Star,
-} from 'lucide-react'
+import { CreditCard, MessageCircleMore, ShoppingCart, Star } from 'lucide-react'
 import { ChangeEvent, useCallback, useMemo, useState } from 'react'
 import ProductVariantSelector from './product-variant-option'
 import ProductDetailAction from './product-detail-action'
 import useScreen from '@/hooks/useScreen'
-import { Button } from '../../button'
+import BottomSheet from '../../bottom-sheet/bottom-sheet'
 
 interface IProductDetailProps {
   details: IProductResponse
 }
+
 type PriceMap = Record<string, { salePrice: number; price: number }>
+
+export enum ACTION {
+  ADD_TO_CART,
+  PURCHASE,
+}
 
 export default function ProductDetailContent({ details }: Readonly<IProductDetailProps>) {
   const { product, skus } = details
@@ -27,14 +24,22 @@ export default function ProductDetailContent({ details }: Readonly<IProductDetai
   const { variantTypes } = product
 
   const [selectedVariants, setSelectedVariants] = useState<Record<string, string>>({})
-  const [quantity, setQuantity] = useState<number>(1)
+  const [quantity, setQuantity] = useState<number>(0)
+  const [sheetState, setSheetState] = useState<{ isOpen: boolean; action?: ACTION }>({
+    isOpen: false,
+  })
 
   const handleChange = useCallback((count: number) => {
     setQuantity((prev) => prev + count)
   }, [])
 
   const handleInputQuantity = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const validCount = Math.max(1, Number(e.target.value))
+    const val = e.target.value
+    if (val === '') {
+      setQuantity(0)
+      return
+    }
+    const validCount = Math.max(1, Number(val))
     setQuantity(validCount)
   }, [])
 
@@ -79,9 +84,15 @@ export default function ProductDetailContent({ details }: Readonly<IProductDetai
     return <span className="text-2xl font-bold">{toVND(price)}</span>
   }, [displayPriceForVariant])
 
+  const handleSetAction = (isOpen: boolean, action?: ACTION) => {
+    setSheetState({
+      isOpen,
+      action,
+    })
+  }
+
   return (
     <div className="flex flex-col gap-5">
-      {/* Title & Rating */}
       <div>
         <h1 className="text-2xl font-bold">{product.name}</h1>
         <div className="flex items-center gap-2 mt-2">
@@ -96,10 +107,8 @@ export default function ProductDetailContent({ details }: Readonly<IProductDetai
         </div>
       </div>
 
-      {/* Price */}
       {displayPrice}
 
-      {/* Description */}
       <p className="text-gray-600">{product.shortDescription}</p>
 
       {!isMobile && (
@@ -117,24 +126,50 @@ export default function ProductDetailContent({ details }: Readonly<IProductDetai
         </>
       )}
 
-      {/* Bottom navigation for Mobile */}
       {isMobile && (
-        <div className="fixed bottom-0 left-0 w-full grid grid-cols-2 items-center h-16 bg-white border-t shadow-lg z-50 shadow">
-          {/* Nửa trái: 2 nút */}
-          <div className="flex flex-1 divide-x divide-gray-400">
-            <button className="flex-1 flex items-center justify-center">
-              <MessageCircleMore size={28} color="black" />
-            </button>
-            <button className="flex-1 flex items-center justify-center">
-              <ShoppingCart size={28} color="black" />
+        <>
+          <div className="fixed bottom-0 left-0 w-full grid grid-cols-2 items-center h-16 bg-white border-t shadow-lg z-50 shadow">
+            <div className="flex flex-1 divide-x divide-gray-400">
+              <button className="flex-1 flex items-center justify-center">
+                <MessageCircleMore size={28} color="black" />
+              </button>
+              <button
+                className="flex-1 flex items-center justify-center"
+                onClick={() => handleSetAction(true, ACTION.ADD_TO_CART)}
+              >
+                <ShoppingCart size={28} color="black" />
+              </button>
+            </div>
+
+            <button
+              className="flex-1 flex items-center justify-center bg-black text-white h-full"
+              onClick={() => handleSetAction(true, ACTION.PURCHASE)}
+            >
+              <CreditCard size={28} className="mr-2" />
+              Buy Now
             </button>
           </div>
 
-          <button className="flex-1 flex items-center justify-center bg-black text-white h-full">
-            <CreditCard size={28} className="mr-2" />
-            Buy Now
-          </button>
-        </div>
+          <BottomSheet
+            isOpen={sheetState.isOpen}
+            onClose={() => handleSetAction(false)}
+            title="Select Options"
+          >
+            <ProductVariantSelector
+              variantTypes={variantTypes}
+              onSelectVariant={handleSelectVariant}
+              selectVariants={selectedVariants}
+            />
+            <div className="mt-4">
+              <ProductDetailAction
+                action={sheetState.action}
+                quantity={quantity}
+                onClickButton={handleChange}
+                onInputQuantity={handleInputQuantity}
+              />
+            </div>
+          </BottomSheet>
+        </>
       )}
     </div>
   )
