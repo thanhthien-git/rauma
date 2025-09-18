@@ -8,25 +8,27 @@ import ClientRecommendSection from '@/components/home/recommend-section'
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-full items-center justify-between gap-8">
+    <>
       <section>
         <ClientMarqueeTextSection />
       </section>
-      <section className="w-full">
-        <ClientHeroSection />
-      </section>
-      <section className="w-full">
-        <ClientCategorySection />
-      </section>
-      <section className="w-full relative overflow-visible">
-        <ClientFlashsaleSection />
-      </section>
-      <section className="w-full">
-        <ClientRecommendSection />
-      </section>
-      <section className="w-full">
-        <CustomerFeedback />
-      </section>
-    </div>
+      <div className="flex flex-col h-full items-center justify-between gap-8">
+        <section className="w-full">
+          <ClientHeroSection />
+        </section>
+        <section className="w-full">
+          <ClientCategorySection />
+        </section>
+        <section className="w-full relative overflow-visible">
+          <ClientFlashsaleSection />
+        </section>
+        <section className="w-full">
+          <ClientRecommendSection />
+        </section>
+        {/* <section className="w-full">
+          <CustomerFeedback />
+        </section> */}
+      </div>
+    </>
   )
 }

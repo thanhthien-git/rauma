@@ -11,7 +11,7 @@ export function ReviewCard({ reviewCard }: { reviewCard: IReviewCard }) {
   return (
     <Card
       className={`shadow-sm border rounded-xl transition-all duration-300 ${
-        expanded ? 'h-auto' : 'h-[200px]'
+        expanded ? 'h-auto' : 'h-[220px]'
       }`}
     >
       <CardContent className="p-6 flex flex-col">

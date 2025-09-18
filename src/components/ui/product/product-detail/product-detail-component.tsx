@@ -5,6 +5,7 @@ import ProductDetailContent from './product-detail-content'
 import { useMemo } from 'react'
 import { IProductResponse, ITEM_STATUS } from '@/interfaces/products/IProduct'
 import { mock } from 'node:test'
+import ProductTabs from './product-detail-tabs'
 const mockApi: IProductResponse = {
   product: {
     id: 'prod_001',
@@ -216,13 +217,23 @@ export default function ProductDetailComponent() {
     return Array.from([...product.media.map((m) => m.url), ...skus.flatMap((sku) => sku.images)])
   }, [product.media, skus])
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
-      <div className="col-span-1 md:col-span-3">
-        <ProductDetailImages urls={thumbnails} />
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-5">
+        <div className="col-span-1 md:col-span-3">
+          <ProductDetailImages urls={thumbnails} />
+        </div>
+        <div className="col-span-1 md:col-span-2">
+          <ProductDetailContent details={mockApi} />
+        </div>
       </div>
-      <div className="col-span-1 md:col-span-2 p-4 sm:p-0">
-        <ProductDetailContent details={mockApi} />
+
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-5">
+        <div className="col-span-1 md:col-span-5 text-black">
+          <div className="">
+            <ProductTabs />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
