@@ -66,7 +66,7 @@ const reviews: Review[] = [
 export default function ProductReviews() {
   return (
     <div className="space-y-6">
-      <div className="border-b flex justify-between items-center pb-2">
+      <div className="border-b flex justify-between items-center p-4 pb-2 ">
         <CardTitle className="text-xl font-semibold">ALL REVIEWS (451)</CardTitle>
         <Button variant="outline">Write a Review</Button>
       </div>

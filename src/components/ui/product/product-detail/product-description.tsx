@@ -83,7 +83,7 @@ export const productDescriptionHTML = `
 export default function ProductDescription() {
   return (
     <Card className="border-0 shadow-none p-0">
-      <CardHeader className="flex items-center justify-between p-4 pb-0">
+      <CardHeader className="border-b flex items-center justify-between p-4 !pb-2 ">
         <CardTitle className="text-xl">PRODUCT DESCRIPTION</CardTitle>
       </CardHeader>
       <CardContent>
