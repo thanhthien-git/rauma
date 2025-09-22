@@ -12,13 +12,17 @@ import Link from 'next/link'
 interface IProductCardProps {
   product: Readonly<IProductCard>
   isFlashSale?: boolean
+  variant?: 'default' | 'small'
 }
-export default function ProductCard({ product, isFlashSale = false }: Readonly<IProductCardProps>) {
+export default function ProductCard({
+  product,
+  isFlashSale = false,
+  variant = 'default',
+}: Readonly<IProductCardProps>) {
   const { id, discountPercent, imageUrl, name } = product
 
   return (
     <Link href={`/product/${slugAndId(name, id)}`}>
-      {' '}
       <div
         className={clsx(
           'flex flex-col items-center justify-between gap-3 border-1 ',
@@ -27,7 +31,13 @@ export default function ProductCard({ product, isFlashSale = false }: Readonly<I
         )}
         key={id}
       >
-        <div className="relative w-full aspect-square flex items-center justify-center overflow-hidden border-b-1">
+        <div
+          className={clsx(
+            'relative w-full flex items-center justify-center overflow-hidden border-b-1',
+            variant === 'default' && 'aspect-square',
+            variant === 'small' && 'aspect-[4/3] h-[160px]',
+          )}
+        >
           <Image url={imageUrl} />
 
           {discountPercent > 0 && (

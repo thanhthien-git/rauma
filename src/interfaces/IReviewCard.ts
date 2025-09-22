@@ -1,6 +1,7 @@
 export type IReviewCard = {
+  id: number
   name: string
-  review: string
+  date: string
   rating: number
-  verified?: boolean
+  comment: string
 }

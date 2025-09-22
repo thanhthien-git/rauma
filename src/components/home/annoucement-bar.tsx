@@ -1,13 +1,8 @@
 'use client'
 
 import { X } from 'lucide-react'
-import { useState } from 'react'
 
-export default function AnnouncementBar() {
-  const [visible, setVisible] = useState(true)
-
-  if (!visible) return null
-
+export default function AnnouncementBar({ onClose }: { onClose: () => void }) {
   return (
     <div className="relative flex justify-center items-center w-full bg-black text-white text-sm py-2 px-4">
       <p>
@@ -16,7 +11,7 @@ export default function AnnouncementBar() {
           Sign Up Now
         </a>
       </p>
-      <button onClick={() => setVisible(false)} className="absolute right-4">
+      <button onClick={onClose} className="absolute right-4">
         <X className="h-4 w-4" />
       </button>
     </div>

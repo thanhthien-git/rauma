@@ -1,8 +1,8 @@
 'use client'
 
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Star } from 'lucide-react'
+import ReviewDetailCard from '../../review/review-detail-product-card'
 
 interface Review {
   id: number
@@ -37,44 +37,42 @@ const reviews: Review[] = [
     comment:
       'This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer’s touch in every aspect of this shirt.',
   },
+  {
+    id: 4,
+    name: 'Samantha D.',
+    date: 'August 14, 2023',
+    rating: 4.5,
+    comment:
+      'I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It’s become my favorite go-to shirt.',
+  },
+  {
+    id: 5,
+    name: 'Alex M.',
+    date: 'August 15, 2023',
+    rating: 5,
+    comment:
+      'The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I’m quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.',
+  },
+  {
+    id: 6,
+    name: 'Ethan R.',
+    date: 'August 16, 2023',
+    rating: 4,
+    comment:
+      'This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer’s touch in every aspect of this shirt.',
+  },
 ]
-
-function RatingStars({ rating }: { rating: number }) {
-  return (
-    <div className="flex text-yellow-500">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          size={18}
-          fill={i < Math.floor(rating) ? 'currentColor' : 'none'}
-          strokeWidth={1.5}
-        />
-      ))}
-    </div>
-  )
-}
 
 export default function ProductReviews() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between border-b pb-2">
-        <h2 className="text-xl font-semibold">All Reviews (451)</h2>
+      <div className="border-b flex justify-between items-center pb-2">
+        <CardTitle className="text-xl font-semibold">ALL REVIEWS (451)</CardTitle>
         <Button variant="outline">Write a Review</Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {reviews.map((review) => (
-          <Card key={review.id} className="rounded-2xl shadow-sm">
-            <CardContent className="p-4 space-y-3">
-              <RatingStars rating={review.rating} />
-              <div className="flex items-center justify-between">
-                <p className="font-semibold">{review.name}</p>
-                <span className="text-xs text-muted-foreground">Posted on {review.date}</span>
-              </div>
-              <p className="text-sm text-gray-700">{review.comment}</p>
-            </CardContent>
-          </Card>
-        ))}
+        <ReviewDetailCard data={reviews} />
       </div>
 
       <div className="flex justify-center">

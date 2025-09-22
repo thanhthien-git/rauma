@@ -1,6 +1,5 @@
 import AnnouncementBar from '@/components/home/annoucement-bar'
 import ClientCategorySection from '@/components/home/category-section'
-import CustomerFeedback from '@/components/home/customer-feedback'
 import ClientFlashsaleSection from '@/components/home/flash-sale-section'
 import ClientHeroSection from '@/components/home/hero-section'
 import ClientMarqueeTextSection from '@/components/home/marquee-text-section'
@@ -25,9 +24,6 @@ export default function Home() {
         <section className="w-full">
           <ClientRecommendSection />
         </section>
-        {/* <section className="w-full">
-          <CustomerFeedback />
-        </section> */}
       </div>
     </>
   )

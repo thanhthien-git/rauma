@@ -227,7 +227,7 @@ export default function ProductDetailComponent() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pb-5">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 pt-15">
         <div className="col-span-1 md:col-span-5 text-black">
           <div className="">
             <ProductTabs />

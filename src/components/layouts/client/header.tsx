@@ -10,11 +10,18 @@ import QuickCart from './modals/cart/cart'
 import QuickUser from './modals/user/user'
 import AnnouncementBar from '@/components/home/annoucement-bar'
 import QuickSearchBar from './modals/search'
+import { useEffect, useState } from 'react'
 
 export default function ClientHeader() {
+  const [showBar, setShowBar] = useState(true)
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--header-offset', showBar ? '8rem' : '6rem')
+  }, [showBar])
   return (
     <>
-      <AnnouncementBar />
+      {showBar && <AnnouncementBar onClose={() => setShowBar(false)} />}
+
       <div className="w-full border-b bg-white dark:bg-gray-900">
         <div className="container mx-auto flex h-24 items-center justify-between px-4">
           {/* Logo */}
