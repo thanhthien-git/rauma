@@ -23,8 +23,3 @@ export type MediaAsset = {
   embeddingId?: string
   isPrimary: boolean
 }
-export type DetailProductTabItem = {
-  label: string
-  value: string | string[]
-  link?: string | string[]
-}

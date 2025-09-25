@@ -1,72 +1,137 @@
 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import ProductReviews from './product-detail-review'
 import ProductDetailTab from './product-detail-tab'
 import ProductDescription from './product-description'
 import { motion } from 'framer-motion'
+import { IProductResponse } from '@/interfaces/products/IProduct'
+import BottomSheet from '../../bottom-sheet/bottom-sheet'
+import { ACTION } from './product-detail-content'
+import { useState } from 'react'
+import { ChevronRight } from 'lucide-react'
 
-export default function ProductTabs() {
+export default function ProductTabs({ product }: { product: IProductResponse }) {
+  const [sheetState, setSheetState] = useState<{ isOpen: boolean }>({
+    isOpen: false,
+  })
+  const handleSetAction = (isOpen: boolean) => {
+    setSheetState({
+      isOpen,
+    })
+  }
+  const { details, featuredProduct, productDescriptionHTML, reviews } = product
   return (
-    <Tabs defaultValue="details" className="w-full">
-      <div className="bg-gradient-to-r from-gray-50 to-gray-50 dark:from-gray-800 dark:to-gray-900 ">
-        {/* Tabs header */}
-        <TabsList className="w-full flex justify-evenly bg-transparent h-auto">
-          <TabsTrigger
-            value="details"
-            className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black data-[state=active]:shadow-none rounded-none pb-2"
-          >
-            Details
-          </TabsTrigger>
+    <>
+      {/* Desktop: Tabs */}
+      <div className="hidden md:block">
+        <Tabs defaultValue="details" className="w-full">
+          <div className="bg-gradient-to-r from-gray-50 to-gray-50 dark:from-gray-800 dark:to-gray-900">
+            <TabsList className="w-full flex justify-evenly bg-transparent h-auto">
+              <TabsTrigger
+                value="details"
+                className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none pb-2"
+              >
+                Details
+              </TabsTrigger>
+              <TabsTrigger
+                value="descriptions"
+                className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none pb-2"
+              >
+                Descriptions
+              </TabsTrigger>
+              <TabsTrigger
+                value="reviews"
+                className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black rounded-none pb-2"
+              >
+                Rating & Reviews
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-          <TabsTrigger
-            value="descriptions"
-            className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black data-[state=active]:shadow-none rounded-none pb-2"
-          >
-            Descriptions
-          </TabsTrigger>
+          <div className="pt-4">
+            <TabsContent value="details" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <ProductDetailTab featuredProduct={featuredProduct} detail={details} />
+              </motion.div>
+            </TabsContent>
 
-          <TabsTrigger
-            value="reviews"
-            className="text-base data-[state=active]:border-b-2 data-[state=active]:border-black data-[state=active]:shadow-none rounded-none pb-2"
-          >
-            Rating & Reviews
-          </TabsTrigger>
-        </TabsList>
+            <TabsContent value="descriptions" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <ProductDescription productDescriptionHTML={productDescriptionHTML} />
+              </motion.div>
+            </TabsContent>
+
+            <TabsContent value="reviews" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                <ProductReviews reviews={reviews} />
+              </motion.div>
+            </TabsContent>
+          </div>
+        </Tabs>
       </div>
 
-      {/* Tab contents */}
-      <div className="pt-4">
-        <TabsContent value="details" className="mt-0 focus-visible:outline-none">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <ProductDetailTab />
-          </motion.div>
-        </TabsContent>
+      {/* Mobile: Accordion */}
+      <div className="block md:hidden">
+        <section
+          className="bg-white shadow-sm cursor-pointer"
+          onClick={() => handleSetAction(true)}
+        >
+          <div className="flex items-center justify-between px-4 py-3">
+            <h3 className="font-semibold text-sm text-gray-800">Specification</h3>
+            <div className="flex items-center gap-1 text-gray-500 text-sm">
+              <span>Stock,Style</span>
+              <ChevronRight size={18} className="mx-1 text-gray-400" />
+            </div>
+          </div>
+        </section>
 
-        <TabsContent value="descriptions" className="mt-0 focus-visible:outline-none">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <ProductDescription />
-          </motion.div>
-        </TabsContent>
+        <section className="bg-white shadow-sm">
+          <Accordion type="single" collapsible defaultValue="description">
+            <AccordionItem value="description" className="border-none">
+              <AccordionTrigger className="flex items-center justify-between px-4 py-3 font-semibold text-sm text-gray-800 hover:no-underline">
+                Description
+              </AccordionTrigger>
+              <AccordionContent className="px-4 pb-4 text-sm text-gray-700">
+                <ProductDescription productDescriptionHTML={productDescriptionHTML} />
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </section>
 
-        <TabsContent value="reviews" className="mt-0 focus-visible:outline-none">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <ProductReviews />
-          </motion.div>
-        </TabsContent>
+        <section className="bg-white shadow-sm">
+          <h3 className="px-4 py-3 font-semibold text-sm text-gray-800">Product Ratings</h3>
+          <div className="px-4 pb-4 text-sm text-gray-700">
+            <ProductReviews reviews={reviews} />
+          </div>
+        </section>
       </div>
-    </Tabs>
+      <BottomSheet
+        isOpen={sheetState.isOpen}
+        onClose={() => handleSetAction(false)}
+        title="Specification"
+        okBtn={true}
+      >
+        <ProductDetailTab featuredProduct={featuredProduct} detail={details} />
+      </BottomSheet>
+    </>
   )
 }
