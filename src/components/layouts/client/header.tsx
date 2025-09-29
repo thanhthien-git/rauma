@@ -2,14 +2,11 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Search } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import QuickNotification from './modals/notifications/notification'
 import QuickCart from './modals/cart/cart'
 import QuickUser from './modals/user/user'
 import AnnouncementBar from '@/components/home/annoucement-bar'
-import QuickSearchBar from './modals/search'
+import QuickSearchBar from './modals/search/search-bar'
 import { useEffect, useState } from 'react'
 
 export default function ClientHeader() {

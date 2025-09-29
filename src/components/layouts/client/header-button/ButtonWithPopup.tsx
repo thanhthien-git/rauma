@@ -1,11 +1,7 @@
-import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@radix-ui/react-popover";
-import { useState, useCallback } from "react";
-import { ButtonWithPopupProps } from "./ButtonWithPopupProps.interface";
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
+import { useState, useCallback } from 'react'
+import { ButtonWithPopupProps } from './ButtonWithPopupProps.interface'
 
 export function ButtonWithPopup({
   count,
@@ -14,9 +10,9 @@ export function ButtonWithPopup({
   children,
   popupContent,
 }: Readonly<ButtonWithPopupProps>) {
-  const [open, setOpen] = useState(false);
-  const handleMouseEnter = useCallback(() => setOpen(true), []);
-  const handleMouseLeave = useCallback(() => setOpen(false), []);
+  const [open, setOpen] = useState(false)
+  const handleMouseEnter = useCallback(() => setOpen(true), [])
+  const handleMouseLeave = useCallback(() => setOpen(false), [])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -24,7 +20,7 @@ export function ButtonWithPopup({
         <Button
           variant="outline"
           size="icon"
-          className={`relative h-10 w-10 ${buttonClassName || ""}`}
+          className={`relative h-10 w-10 ${buttonClassName || ''}`}
           onClick={onClick}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -51,5 +47,5 @@ export function ButtonWithPopup({
         {popupContent}
       </PopoverContent>
     </Popover>
-  );
+  )
 }

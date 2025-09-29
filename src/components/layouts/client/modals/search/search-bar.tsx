@@ -3,6 +3,8 @@
 import { Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { ButtonWithPopup } from '../../header-button/ButtonWithPopup'
+import { MobileSearchDrawer } from './search-drawer'
 
 export default function QuickSearchBar() {
   return (
@@ -19,10 +21,9 @@ export default function QuickSearchBar() {
         </Button>
       </div>
 
-      {/* Mobile Search Icon */}
-      <Button variant="ghost" size="icon" className="flex md:hidden h-10 w-10">
-        <Search className="h-5 w-5" />
-      </Button>
+      <div className="flex sm:hidden">
+        <MobileSearchDrawer />
+      </div>
     </>
   )
 }
