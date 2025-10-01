@@ -10,7 +10,7 @@ export default function QuickSearchBar() {
   return (
     <>
       {/* Desktop Search */}
-      <div className="hidden md:flex flex-1 max-w-3xl">
+      <div className="hidden lg:flex flex-1 max-w-3xl">
         <Input
           type="search"
           placeholder="Search products..."
@@ -21,7 +21,7 @@ export default function QuickSearchBar() {
         </Button>
       </div>
 
-      <div className="flex sm:hidden">
+      <div className="flex lg:hidden">
         <MobileSearchDrawer />
       </div>
     </>

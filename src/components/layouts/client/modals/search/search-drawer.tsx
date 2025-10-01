@@ -25,7 +25,7 @@ export function MobileSearchDrawer() {
         <Button
           variant="outline"
           size="icon"
-          className="flex sm:hidden h-10 w-10 hover:bg-gray-100 transition-colors duration-200"
+          className="flex  h-10 w-10 hover:bg-gray-100 transition-colors duration-200"
         >
           <Search className="h-5 w-5" />
         </Button>

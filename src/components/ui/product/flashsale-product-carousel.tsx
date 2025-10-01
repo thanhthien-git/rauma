@@ -70,7 +70,7 @@ export default function ProductCarousel({ products }: Readonly<IProductCarouselP
             size="icon"
             onClick={handlePrev}
             className="pointer-events-auto absolute left-2 top-1/2 -translate-y-1/2
-             z-50 rounded-full bg-white shadow-lg transition-transform duration-200 hover:scale-110"
+             rounded-full bg-white shadow-lg transition-transform duration-200 hover:scale-110"
             aria-label="Previous"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -83,7 +83,7 @@ export default function ProductCarousel({ products }: Readonly<IProductCarouselP
             size="icon"
             onClick={handleNext}
             className="pointer-events-auto absolute right-2 top-1/2 -translate-y-1/2
-             z-50 rounded-full bg-white shadow-lg transition-transform duration-200 hover:scale-110"
+              rounded-full bg-white shadow-lg transition-transform duration-200 hover:scale-110"
             aria-label="Next"
           >
             <ChevronRight className="h-6 w-6" />
