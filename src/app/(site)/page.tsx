@@ -8,13 +8,13 @@ import ClientRecommendSection from '@/components/home/recommend-section'
 export default function Home() {
   return (
     <>
-      <section>
+      {/* <section>
         <ClientMarqueeTextSection />
-      </section>
+      </section> */}
       <div className="flex flex-col h-full items-center justify-between gap-8">
-        <section className="w-full">
+        {/* <section className="w-full">
           <ClientHeroSection />
-        </section>
+        </section> */}
         <section className="w-full">
           <ClientCategorySection />
         </section>

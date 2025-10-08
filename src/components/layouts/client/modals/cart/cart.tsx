@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ShoppingCart } from 'lucide-react'
 import QuickCartItem from './cart-item'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export default function QuickCart() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -81,8 +82,9 @@ export default function QuickCart() {
               <Button
                 variant="default"
                 className="bg-black text-white rounded px-3 py-1 shadow-md hover:bg-black/90"
+                asChild
               >
-                View My Cart
+                <Link href={'/cart'}>View my cart</Link>
               </Button>
             </div>
           </CardContent>

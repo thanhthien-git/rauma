@@ -6,9 +6,9 @@ import QuickNotification from './modals/notifications/notification'
 import QuickCart from './modals/cart/cart'
 import QuickUser from './modals/user/user'
 import AnnouncementBar from '@/components/home/annoucement-bar'
-import QuickSearchBar from './modals/search/search-bar'
 import { useEffect, useState } from 'react'
 import HamburgerMenu from '@/components/ui/navigation/hambuger-navigation/hambuger-navigation'
+import QuickSearchBar from './modals/search/quick-search-bar'
 
 export default function ClientHeader() {
   const [showBar, setShowBar] = useState(true)
