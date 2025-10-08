@@ -62,7 +62,11 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                 )
               } else if (item.type === TitleRow.HEADER) {
                 return (
-                  <TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && 'selected'}
+                    className="data-[state=selected]:bg-white"
+                  >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell className="h-12" key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
