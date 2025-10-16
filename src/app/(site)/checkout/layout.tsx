@@ -1,7 +1,7 @@
 'use client'
 import CheckoutHeader from '@/components/layouts/client/header/checkout-header'
 
-export default function CartLayout({
+export default function CheckoutLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
@@ -9,9 +9,9 @@ export default function CartLayout({
   return (
     <div className="flex flex-col">
       <header className="sticky top-0 z-50 bg-white shadow">
-        <CheckoutHeader page={'cart'} showSearch={true} />
+        <CheckoutHeader page={'checkout'} showSearch={false} />
       </header>
-      <main className="px-0 md:px-0 lg:px-10 xl:px-40 py-10">{children}</main>
+      <main className="py-10">{children}</main>
     </div>
   )
 }

@@ -16,6 +16,7 @@ import BottomSheet from '../../bottom-sheet/bottom-sheet'
 import { ACTION } from './product-detail-content'
 import { useState } from 'react'
 import { ChevronRight } from 'lucide-react'
+import { Spinner } from '../../spinner'
 
 export default function ProductTabs({ product }: { product: IProductResponse }) {
   const [sheetState, setSheetState] = useState<{ isOpen: boolean }>({
@@ -26,12 +27,23 @@ export default function ProductTabs({ product }: { product: IProductResponse }) 
       isOpen,
     })
   }
+  const [activeTab, setActiveTab] = useState('details')
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleTabChange = (value: string) => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setActiveTab(value)
+      setIsLoading(false)
+    }, 400)
+  }
   const { details, featuredProduct, productDescriptionHTML, reviews } = product
   return (
     <>
       {/* Desktop: Tabs */}
       <div className="hidden md:block">
-        <Tabs defaultValue="details" className="w-full">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
           <div className="bg-gradient-to-r from-gray-50 to-gray-50 dark:from-gray-800 dark:to-gray-900">
             <TabsList className="w-full flex justify-evenly bg-transparent h-auto">
               <TabsTrigger
@@ -56,35 +68,23 @@ export default function ProductTabs({ product }: { product: IProductResponse }) 
           </div>
 
           <div className="pt-4">
-            <TabsContent value="details" className="mt-0 focus-visible:outline-none">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProductDetailTab featuredProduct={featuredProduct} detail={details} />
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="descriptions" className="mt-0 focus-visible:outline-none">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProductDescription productDescriptionHTML={productDescriptionHTML} />
-              </motion.div>
-            </TabsContent>
-
-            <TabsContent value="reviews" className="mt-0 focus-visible:outline-none">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <ProductReviews reviews={reviews} />
-              </motion.div>
-            </TabsContent>
+            {isLoading ? (
+              <div className="flex items-center justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              <>
+                <TabsContent value="details" className="mt-0 focus-visible:outline-none">
+                  <ProductDetailTab featuredProduct={featuredProduct} detail={details} />
+                </TabsContent>
+                <TabsContent value="descriptions" className="mt-0 focus-visible:outline-none">
+                  <ProductDescription productDescriptionHTML={productDescriptionHTML} />
+                </TabsContent>
+                <TabsContent value="reviews" className="mt-0 focus-visible:outline-none">
+                  <ProductReviews reviews={reviews} />
+                </TabsContent>
+              </>
+            )}
           </div>
         </Tabs>
       </div>

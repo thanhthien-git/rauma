@@ -1,11 +1,10 @@
 import { TitleRow } from '@/constants/enums/cart.enum'
-import { CartHeaderRow, CartItemRow, CartRow, CartSpacerRow } from '@/types/cart'
-import { stores } from '@/mocks/cart/cart.mock'
-import { DataTable } from './data-table'
-import { columns } from './columns'
+import { CartHeaderRow, CartItemRow, CartRow, CartSpacerRow, CartTotalRow } from '@/types/cart'
+import { DataTable } from './checkout-data-table'
+import { columns } from './checkout-columns'
+import { stores } from '@/mocks/checkout/checkout.mock'
 
 const storeFlat: CartRow[] = [
-  { id: `header-top`, type: TitleRow.SPACER } as CartSpacerRow,
   ...stores.flatMap((store) => [
     { id: `header-${store.id}`, storeName: store.name, type: TitleRow.HEADER } as CartHeaderRow,
     ...store.items.map(
@@ -16,9 +15,15 @@ const storeFlat: CartRow[] = [
           storeName: store.name,
         }) as CartItemRow,
     ),
+    {
+      id: `total-${store.id}`,
+      type: TitleRow.TOTAL,
+      totalPrice: store.totalPrice,
+      totalQuantity: store.totalQuantity,
+    } as CartTotalRow,
     { id: `spacer-${store.id}`, type: TitleRow.SPACER } as CartSpacerRow,
   ]),
 ]
-export default function CartPage() {
+export default function CheckoutTable() {
   return <DataTable columns={columns} data={storeFlat} />
 }

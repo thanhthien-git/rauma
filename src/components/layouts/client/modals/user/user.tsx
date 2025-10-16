@@ -6,7 +6,7 @@ import { quickUserMenu } from './menu'
 export default function QuickUser() {
   return (
     <ButtonWithPopup
-      buttonClassName="hidden sm:inline-flex hover:bg-gray-100 transition-colors duration-200"
+      buttonClassName="hover:bg-gray-100 transition-colors duration-200"
       popupContent={
         <Card className="w-80 max-h-100 overflow-hidden border-0 bg-white rounded-xl gap-0 p-0 shadow-[0_0_15px_rgba(0,0,0,0.1)]">
           <CardHeader className="px-4 py-4 border-b [.border-b]:pb-0 border-gray-100">

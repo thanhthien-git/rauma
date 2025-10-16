@@ -20,10 +20,6 @@ export default function QuickSearchBar() {
           <Search className="h-6 w-6" />
         </Button>
       </div>
-
-      <div className="flex lg:hidden">
-        <MobileSearchDrawer />
-      </div>
     </>
   )
 }

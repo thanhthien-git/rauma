@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export default function RightCartSummary() {
   return (
@@ -9,9 +10,11 @@ export default function RightCartSummary() {
         <span className="text-primary font-semibold">123.000₫</span>
       </div>
 
-      <Button className="bg-foreground hover:bg-white hover:text-primary hover:border-black border border-transparent text-white text-sm md:text-base px-6 md:px-8 rounded-sm">
-        Check Out
-      </Button>
+      <Link href={'/checkout'}>
+        <Button className="bg-foreground hover:bg-white hover:text-primary hover:border-black border border-transparent text-white text-sm md:text-base px-6 md:px-8 rounded-sm">
+          Check Out
+        </Button>
+      </Link>
     </div>
   )
 }

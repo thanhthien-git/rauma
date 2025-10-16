@@ -1,5 +1,5 @@
 import CartSummaryBar from '@/components/layouts/client/modals/cart/cart-summary'
-import CartPage from '@/components/ui/cart/cart-table/page'
+import CartPage from '@/components/ui/cart/cart-table'
 
 export default function Cart() {
   return (
