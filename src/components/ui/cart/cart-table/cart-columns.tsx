@@ -66,6 +66,7 @@ export const columns: ColumnDef<CartRow>[] = [
     header: 'Product',
     cell: ({ row }) => {
       const item = row.original
+      if (item.type === TitleRow.TOTAL) return null
       if (item.type === TitleRow.SPACER) return null
       if (item.type === TitleRow.HEADER) return <>{item.storeName}</>
       return (
