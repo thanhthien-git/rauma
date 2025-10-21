@@ -12,17 +12,7 @@ import {
 import { MapPin } from 'lucide-react'
 import { Button } from '../button'
 import AddressDialog from './checkout-address-dialog'
-
-export interface UserAddress {
-  name: string
-  phone: string
-  address: string
-  status: boolean
-}
-
-interface AddressProps {
-  user: UserAddress[]
-}
+import { AddressProps, UserAddress } from '@/interfaces/checkout/ICheckout'
 
 export default function AddressSection({ user }: AddressProps) {
   const [addresses, setAddresses] = useState<UserAddress[]>(user)
@@ -45,7 +35,7 @@ export default function AddressSection({ user }: AddressProps) {
   return (
     <>
       <div className="bg-white flex w-full ">
-        <Item variant="outline" className="w-full">
+        <Item variant="outline" className="w-full rounded-none">
           <ItemMedia variant="icon" className="bg-white">
             <MapPin color="black" />
           </ItemMedia>

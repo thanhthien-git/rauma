@@ -8,13 +8,7 @@ import ClientRecommendSection from '@/components/home/recommend-section'
 export default function Home() {
   return (
     <>
-      {/* <section>
-        <ClientMarqueeTextSection />
-      </section> */}
-      <div className="flex flex-col h-full items-center justify-between gap-8">
-        {/* <section className="w-full">
-          <ClientHeroSection />
-        </section> */}
+      <div className="flex flex-col h-full items-center justify-between gap-8 px-4 py-4">
         <section className="w-full">
           <ClientCategorySection />
         </section>

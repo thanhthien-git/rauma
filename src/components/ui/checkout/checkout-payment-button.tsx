@@ -1,15 +1,24 @@
 'use client'
-export default function PaymentMethodButton({ value, label, isActive, onClick }: any) {
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { paymentMethods } from '@/constants/payment/methods'
+
+export default function PaymentMethodButton() {
   return (
-    <button
-      onClick={onClick}
-      className={`px-4 py-2 text-sm rounded border transition-all ${
-        isActive
-          ? 'border-black bg-black text-white'
-          : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-      }`}
-    >
-      {label}
-    </button>
+    <Tabs defaultValue={paymentMethods[0].value} className=" w-full">
+      <TabsList>
+        {paymentMethods.map((tab) => (
+          <TabsTrigger key={tab.value} value={tab.value}>
+            <p className="text-[13px]">{tab.name}</p>
+          </TabsTrigger>
+        ))}
+      </TabsList>
+      {paymentMethods.map((tab) => (
+        <TabsContent key={tab.value} value={tab.value}>
+          <div className="h-10 flex items-center justify-between border gap-2 rounded-md pl-3 pr-1.5">
+            <p className="text-[13px]">{tab.content}</p>
+          </div>
+        </TabsContent>
+      ))}
+    </Tabs>
   )
 }
