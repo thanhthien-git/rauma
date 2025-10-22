@@ -1,11 +1,29 @@
 import { Funnel } from 'lucide-react'
+import { FilterGroup } from './filter-group'
+import { filters } from '@/constants/menu/client-search-filters'
+import { PriceRange } from './filter-price-range'
+import { StarRatingList } from './filter-rating-star'
 
 export default function FilterSideBar() {
   return (
-    <div className="bg-black flex flex-col w-lg">
-      <div className="flex items-center justify-center gap-5">
-        <Funnel className="w-5 h-5" />
-        <div className="font-spring text-sm text-gray-900 dark:text-gray-100">Search Filter</div>
+    <div className="flex flex-col w-lg">
+      <div className="flex items-center gap-5">
+        <Funnel size={14} />
+        <div className="font-spring text-base text-gray-900 dark:text-gray-100">Search Filter</div>
+      </div>
+      <div className="flex flex-col pt-5 gap-6">
+        <FilterGroup title={filters.shipFrom.title} options={filters.shipFrom.options} />
+        <FilterGroup title={filters.shipOption.title} options={filters.shipOption.options} />
+        <div className="border-b pb-6 ">
+          <PriceRange />
+        </div>
+        <FilterGroup title={filters.shipType.title} options={filters.shipOption.options} />
+        <FilterGroup title={filters.condition.title} options={filters.condition.options} />
+        <FilterGroup title={filters.payment.title} options={filters.payment.options} />
+        <FilterGroup title={filters.promotion.title} options={filters.promotion.options} />
+        <div className="space-y-2">
+          <StarRatingList />
+        </div>
       </div>
     </div>
   )
