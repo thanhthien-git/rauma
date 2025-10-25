@@ -2,7 +2,7 @@ import { Funnel } from 'lucide-react'
 import { FilterGroup } from './filter-group'
 import { filters } from '@/constants/menu/client-search-filters'
 import { PriceRange } from './filter-price-range'
-import { StarRatingList } from './filter-rating-star'
+import { Button } from '../../button'
 
 export default function FilterSideBar() {
   return (
@@ -20,10 +20,9 @@ export default function FilterSideBar() {
         <FilterGroup title={filters.shipType.title} options={filters.shipOption.options} />
         <FilterGroup title={filters.condition.title} options={filters.condition.options} />
         <FilterGroup title={filters.payment.title} options={filters.payment.options} />
+        <FilterGroup title={filters.rating.title} options={filters.rating.options} type="star" />
         <FilterGroup title={filters.promotion.title} options={filters.promotion.options} />
-        <div className="space-y-2">
-          <StarRatingList />
-        </div>
+        <Button className="cursor-pointer">DELETE ALL</Button>
       </div>
     </div>
   )

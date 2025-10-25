@@ -43,13 +43,7 @@ export const filters = {
   },
   rating: {
     title: 'Rating',
-    options: [
-      { label: '5 stars & up', value: '5_up' },
-      { label: '4 stars & up', value: '4_up' },
-      { label: '3 stars & up', value: '3_up' },
-      { label: '2 stars & up', value: '2_up' },
-      { label: '2 stars & up', value: '1_up' },
-    ],
+    options: [{ label: 5 }, { label: 4 }, { label: 3 }, { label: 2 }, { label: 1 }],
   },
   promotion: {
     title: 'Service & Promotion',

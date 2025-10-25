@@ -4,11 +4,7 @@ import React from 'react'
 import { Star } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-interface StarRatingProps {
-  value: number
-}
-
-function StarRating({ value }: StarRatingProps) {
+export default function StarRating({ value }: { value: number }) {
   return (
     <div className="flex items-center">
       {Array.from({ length: 5 }, (_, i) => (
@@ -17,18 +13,7 @@ function StarRating({ value }: StarRatingProps) {
           className={cn('w-4 h-4', i < value ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300')}
         />
       ))}
-    </div>
-  )
-}
-
-export function StarRatingList() {
-  const ratings = [5, 4, 3, 2, 1]
-
-  return (
-    <div className="space-y-2">
-      {ratings.map((value) => (
-        <StarRating key={value} value={value} />
-      ))}
+      <span className="ml-1 text-xs text-gray-500">& Up</span>
     </div>
   )
 }
