@@ -24,6 +24,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const HEADER_HEIGHT = '96px'
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -44,7 +46,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-satoshi">
+      <body
+        className="font-satoshi"
+        style={
+          {
+            '--header-height': HEADER_HEIGHT,
+          } as React.CSSProperties
+        }
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ReduxProvider>
             <div className="flex flex-col bg-gray-100 min-h-screen">

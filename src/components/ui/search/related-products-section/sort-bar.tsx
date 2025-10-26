@@ -75,7 +75,7 @@ export function SortBar() {
           ),
         )}
       </div>
-      <div>
+      <div className="hidden sm:flex">
         <ProductCount currentPage={1} perPage={10} total={100} />
       </div>
     </div>

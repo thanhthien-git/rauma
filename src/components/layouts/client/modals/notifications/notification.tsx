@@ -1,38 +1,40 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ButtonWithPopup } from "../../header-button/ButtonWithPopup";
-import { Bell } from "lucide-react";
-import { useState } from "react";
-import { INotification } from "@/interfaces/INotification";
-import NotificationItem from "./notification-item";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ButtonWithPopup } from '../../header-button/ButtonWithPopup'
+import { Bell } from 'lucide-react'
+import { useState } from 'react'
+import { INotification } from '@/interfaces/INotification'
+import NotificationItem from './notification-item'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export default function QuickNotification() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [notification, setNotification] = useState<INotification[]>([
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 60 * 1000),
     },
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 5 * 60 * 1000),
     },
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 2 * 60 * 60 * 1000),
     },
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 2 * 60 * 60 * 1000),
     },
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 2 * 60 * 60 * 1000),
     },
     {
-      content: "Khuyến mãi giảm giá 20% chỉ trong hôm nay!",
+      content: 'Khuyến mãi giảm giá 20% chỉ trong hôm nay!',
       time: new Date(Date.now() - 2 * 60 * 60 * 1000),
     },
-  ]);
+  ])
   return (
     <ButtonWithPopup
       count={notification.length}
@@ -65,10 +67,14 @@ export default function QuickNotification() {
                 )}
               </ul>
             </div>
-            <div className="p-3 border-t border-gray-100 bg-gray-50">
-              <button className="w-full text-center text-sm text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
-                See all notifications
-              </button>
+            <div className="flex items-center justify-center border-t border-gray-100 p-3">
+              <Button
+                variant="default"
+                className="w-full bg-black text-white rounded px-3 py-1 shadow-md hover:bg-black/90"
+                asChild
+              >
+                <Link href={'/'}>View my notification</Link>
+              </Button>
             </div>
           </CardContent>
         </Card>
@@ -76,5 +82,5 @@ export default function QuickNotification() {
     >
       <Bell className="h-6 w-6" />
     </ButtonWithPopup>
-  );
+  )
 }

@@ -17,7 +17,7 @@ export default function SiteLayout({
   const dispatch = useAppDispatch()
   const { isLoading } = useAppSelector((state) => state.loading)
   const pathname = usePathname()
-  const hiddenHeaderPaths = ['/cart', '/checkout', '/order', '/product']
+  const hiddenHeaderPaths = ['/cart', '/checkout', '/order']
 
   const shouldHideHeader = hiddenHeaderPaths.some((path) => pathname.startsWith(path))
 

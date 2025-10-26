@@ -6,7 +6,7 @@ import { Button } from '../../button'
 
 export default function FilterSideBar() {
   return (
-    <div className="flex flex-col w-lg">
+    <div className="hidden sm:flex flex-col w-lg">
       <div className="flex items-center gap-5">
         <Funnel size={14} />
         <div className="font-spring text-base text-gray-900 dark:text-gray-100">Search Filter</div>
