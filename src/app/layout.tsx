@@ -3,6 +3,7 @@ import './globals.css'
 import ClientFooter from '@/components/layouts/client/footer'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ReduxProvider } from '@/components/providers/redux-provider'
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
   title: 'RAUMA Merce',
@@ -49,6 +50,7 @@ export default function RootLayout({
           <ReduxProvider>
             <div className="flex flex-col bg-gray-100 min-h-screen">
               <main className="flex-grow">{children}</main>
+              <Toaster position="bottom-right" />
               <footer className="mt-auto pt-5">
                 <ClientFooter />
               </footer>

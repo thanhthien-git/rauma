@@ -1,3 +1,5 @@
+import AccountClientForm from '@/components/ui/user/account'
+
 export default function AccountPage() {
-  return <>Account Page</>
+  return <AccountClientForm />
 }

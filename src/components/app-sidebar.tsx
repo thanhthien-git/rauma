@@ -32,11 +32,11 @@ const data = {
       items: [
         {
           title: 'Profile',
-          url: '#',
+          url: '/user/account',
         },
         {
           title: 'Addresses',
-          url: '#',
+          url: '/user/account/addresses',
         },
         {
           title: 'Change Password',

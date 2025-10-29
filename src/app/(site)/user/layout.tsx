@@ -3,7 +3,7 @@ import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 export default function UserLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <div className="p-10 z-10 ">
+      <div className="px-10 py-2 z-10">
         <SidebarProvider className="flex flex-col">
           <div className="relative flex flex-1">
             <AppSidebar />
