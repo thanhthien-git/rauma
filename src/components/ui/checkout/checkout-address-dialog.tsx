@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import { RadioGroup, RadioGroupItem } from '../radio-group'
 import { ClientDialog } from '../customizes/dialog'
+import AddAddressDialog from './checkout-add-address'
+import EditAddressDialog from './checkout-edit-address'
 
 export default function AddressDialog({
   isOpen,
@@ -16,6 +17,7 @@ export default function AddressDialog({
 }) {
   const [selected, setSelected] = useState<number>(1)
   const [openAdd, setOpenAdd] = useState(false)
+  const [openEdit, setOpenEdit] = useState(false)
 
   const mockAddresses = [
     {
@@ -77,7 +79,12 @@ export default function AddressDialog({
                 </div>
               </label>
 
-              <Button variant="ghost" size="sm" className="text-blue-500">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-blue-500"
+                onClick={() => setOpenEdit(true)}
+              >
                 Edit
               </Button>
             </div>
@@ -88,6 +95,8 @@ export default function AddressDialog({
       <Button variant="outline" className="w-full mt-10" onClick={() => setOpenAdd(true)}>
         + Add New Address
       </Button>
+      <AddAddressDialog open={openAdd} onClose={() => setOpenAdd(false)} />
+      <EditAddressDialog open={openEdit} onClose={() => setOpenEdit(false)} />
     </ClientDialog>
   )
 }

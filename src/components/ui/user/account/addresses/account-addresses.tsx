@@ -7,10 +7,14 @@ import { Separator } from '@/components/ui/separator'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { toast } from 'sonner'
+import AddressDialog from '@/components/ui/checkout/checkout-address-dialog'
+import AddAddressDialog from '@/components/ui/checkout/checkout-add-address'
+import EditAddressDialog from '@/components/ui/checkout/checkout-edit-address'
 
 export default function AccountAddressPage() {
   const [selected, setSelected] = useState<number>(1)
-
+  const [openAdd, setOpenAdd] = useState(false)
+  const [openEdit, setOpenEdit] = useState(false)
   const mockAddresses = [
     {
       id: 1,
@@ -41,12 +45,13 @@ export default function AccountAddressPage() {
 
   return (
     <Card className="p-0 border-0 shadow-none">
-      <CardHeader>
-        <CardTitle>My Addresses</CardTitle>
-        <CardDescription>Manage your saved addresses for faster checkout.</CardDescription>
+      <CardHeader className="py-4 bg-black rounded-t-lg">
+        <CardTitle className="text-white">My Addresses</CardTitle>
+        <CardDescription className="text-white">
+          Manage your saved addresses for faster checkout.
+        </CardDescription>
       </CardHeader>
       <Separator className="my-2" />
-
       <CardContent className="mt-4 space-y-6">
         <RadioGroup
           value={selected.toString()}
@@ -80,7 +85,12 @@ export default function AccountAddressPage() {
                     </div>
                   </div>
                 </label>
-                <Button variant="ghost" size="sm" className="text-blue-500">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-blue-500"
+                  onClick={() => setOpenEdit(true)}
+                >
                   Edit
                 </Button>
               </div>
@@ -89,12 +99,14 @@ export default function AccountAddressPage() {
         </RadioGroup>
 
         <div className="flex justify-between items-center pt-6 border-t">
-          <Button variant="outline" className="w-fit">
+          <Button variant="outline" className="w-fit" onClick={() => setOpenAdd(true)}>
             + Add New Address
           </Button>
           <Button onClick={handleConfirm}>Save Changes</Button>
         </div>
       </CardContent>
+      <AddAddressDialog open={openAdd} onClose={() => setOpenAdd(false)} />
+      <EditAddressDialog open={openEdit} onClose={() => setOpenEdit(false)} />{' '}
     </Card>
   )
 }

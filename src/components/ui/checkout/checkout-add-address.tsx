@@ -1,5 +1,8 @@
 'use client'
 
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
 import {
   Dialog,
   DialogContent,
@@ -9,51 +12,109 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { useState } from 'react'
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormMessage,
+} from '@/components/ui/form'
+import { toast } from 'sonner'
+
+const addressSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters.'),
+  phone: z
+    .string()
+    .min(8, 'Phone number must be at least 8 digits.')
+    .regex(/^[0-9+\-\s()]*$/, 'Invalid phone number.'),
+  address: z.string().min(5, 'Address must be at least 5 characters.'),
+})
+
+type AddressFormValues = z.infer<typeof addressSchema>
 
 interface AddAddressDialogProps {
   open: boolean
-  onOpenChange: (open: boolean) => void
+  onClose: () => void
 }
 
-export default function AddAddressDialog({ open, onOpenChange }: AddAddressDialogProps) {
-  const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    address: '',
+export default function AddAddressDialog({ open, onClose }: AddAddressDialogProps) {
+  const form = useForm<AddressFormValues>({
+    resolver: zodResolver(addressSchema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      address: '',
+    },
   })
 
+  const onSubmit = (values: AddressFormValues) => {
+    console.log('New address:', values)
+    toast.success('Address added!', {
+      description: `${values.name} • ${values.phone}`,
+    })
+    form.reset()
+    onClose()
+  }
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Add New Address</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-3">
-          <Input
-            placeholder="Full Name"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-          />
-          <Input
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          />
-          <Input
-            placeholder="Address"
-            value={form.address}
-            onChange={(e) => setForm({ ...form, address: e.target.value })}
-          />
-        </div>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter full name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <DialogFooter className="mt-4">
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
-            Cancel
-          </Button>
-          <Button onClick={() => alert('Address added!')}>Save</Button>
-        </DialogFooter>
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter phone number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Address</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <DialogFooter className="mt-4">
+              <Button type="button" variant="outline" onClick={onClose}>
+                Cancel
+              </Button>
+              <Button type="submit">Save</Button>
+            </DialogFooter>
+          </form>
+        </Form>
       </DialogContent>
     </Dialog>
   )

@@ -49,9 +49,11 @@ export default function AccountClientForm() {
 
   return (
     <Card className="p-0 border-0 shadow-none">
-      <CardHeader>
-        <CardTitle>Personal Information</CardTitle>
-        <CardDescription>Update your personal details and profile information.</CardDescription>
+      <CardHeader className="py-4 bg-black rounded-t-lg">
+        <CardTitle className="text-white">Personal Information</CardTitle>
+        <CardDescription className="text-white">
+          Update your personal details and profile information.
+        </CardDescription>
       </CardHeader>
       <Separator className="my-2" />
 
