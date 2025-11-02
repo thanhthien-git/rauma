@@ -4,6 +4,7 @@ import ClientFooter from '@/components/layouts/client/footer'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { ReduxProvider } from '@/components/providers/redux-provider'
 import { Toaster } from '@/components/ui/sonner'
+import { QueryProvider } from '@/components/providers/query-provider'
 
 export const metadata: Metadata = {
   title: 'RAUMA Merce',
@@ -48,13 +49,15 @@ export default function RootLayout({
       <body className="font-satoshi">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ReduxProvider>
-            <div className="flex flex-col bg-gray-100 min-h-screen">
-              <main className="flex-grow">{children}</main>
-              <Toaster position="bottom-right" />
-              <footer className="mt-auto pt-5">
-                <ClientFooter />
-              </footer>
-            </div>
+            <QueryProvider>
+              <div className="flex flex-col bg-gray-100 min-h-screen">
+                <main className="flex-grow">{children}</main>
+                <Toaster position="bottom-right" />
+                <footer className="mt-auto pt-5">
+                  <ClientFooter />
+                </footer>
+              </div>
+            </QueryProvider>
           </ReduxProvider>
         </ThemeProvider>
       </body>

@@ -1,7 +1,7 @@
 'use client'
+import ClientSearchBar from '@/components/ui/search/search-bar'
 import Image from 'next/image'
 import Link from 'next/link'
-import SearchBar from '../modals/search/search-bar'
 interface ICheckoutHeaderProps {
   page: 'cart' | 'checkout'
   showSearch: boolean
@@ -32,7 +32,7 @@ export default function CheckoutHeader({ page, showSearch }: ICheckoutHeaderProp
       </div>
       {showSearch && (
         <div className="flex-1 max-w-3xl px-2 sm:px-0 mr-10">
-          <SearchBar />
+          <ClientSearchBar />
         </div>
       )}
     </div>

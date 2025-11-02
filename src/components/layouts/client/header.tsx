@@ -7,7 +7,6 @@ import QuickCart from './modals/cart/cart'
 import QuickUser from './modals/user/user'
 import AnnouncementBar from '@/components/home/annoucement-bar'
 import { useEffect, useState } from 'react'
-import HamburgerMenu from '@/components/ui/navigation/hambuger-navigation/hambuger-navigation'
 import QuickSearchBar from './modals/search/quick-search-bar'
 
 export default function ClientHeader() {
@@ -22,8 +21,6 @@ export default function ClientHeader() {
 
       <div className="w-full border-b bg-white dark:bg-gray-900">
         <div className="container mx-auto flex h-24 items-center justify-between px-4">
-          {/* <HamburgerMenu /> */}
-
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
