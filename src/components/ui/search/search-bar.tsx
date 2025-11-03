@@ -6,10 +6,10 @@ import { Input } from '@/components/ui/input'
 
 export default function ClientSearchBar() {
   return (
-    <div className="flex w-full max-w-full sm:max-w-xl lg:max-w-3xl">
+    <div className="hidden md:flex w-full max-w-full sm:max-w-xl lg:max-w-3xl ml-2">
       <Input
         type="search"
-        placeholder="Search products...13"
+        placeholder="Search products..."
         className="flex-1 h-10 sm:h-12 text-sm sm:text-base rounded-l-full rounded-r-none bg-gray-100 dark:bg-gray-800 border border-gray-300 focus-visible:ring-0 focus:border-gray-400"
       />
       <Button

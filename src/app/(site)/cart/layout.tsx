@@ -11,7 +11,7 @@ export default function CartLayout({
       <header className="sticky top-0 z-50 bg-white shadow">
         <CheckoutHeader page={'cart'} showSearch={true} />
       </header>
-      <main className="px-0 md:px-0 lg:px-10 xl:px-40 py-10">{children}</main>
+      <main className="px-0 md:px-0 lg:px-10 xl:px-40 py-0 md:py-10">{children}</main>
     </div>
   )
 }

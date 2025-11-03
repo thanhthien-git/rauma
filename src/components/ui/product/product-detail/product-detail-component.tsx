@@ -3,8 +3,6 @@
 import ProductDetailImages from './product-detail-image'
 import ProductDetailContent from './product-detail-content'
 import { useMemo } from 'react'
-import { IProductResponse, ITEM_STATUS } from '@/interfaces/products/IProduct'
-import { mock } from 'node:test'
 import ProductTabs from './product-detail-tabs'
 import { mockApi } from '@/mocks/product/product.mock'
 
