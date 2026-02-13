@@ -1,9 +1,5 @@
-import ProductDetailComponent from '@/components/ui/product/product-detail/product-detail-component'
+import ProductDetailMainPage from '@/components/ui/product/product-detail/product-main-detail'
 
 export default function ProductDetailPage() {
-  return (
-    <div className="bg-white p-0 md:p-4 rounded-lg">
-      <ProductDetailComponent />
-    </div>
-  )
+  return <ProductDetailMainPage />
 }

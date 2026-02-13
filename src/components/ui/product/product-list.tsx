@@ -1,27 +1,25 @@
+'use client'
+
 import { IProductCard } from '@/interfaces/products/IProductCardProps'
 import ProductCard from './product-card'
-import useScreen from '@/hooks/useScreen'
-import { useMemo } from 'react'
 import clsx from 'clsx'
 import { PackageX } from 'lucide-react'
 import PaginationComponent from '../pagination/paginate'
 
-interface IProductListProps {
+export interface IProductListProps {
   products?: IProductCard[]
+  hasSidebar?: boolean
 }
 
-export default function ProductList({ products }: Readonly<IProductListProps>) {
-  const { isMobile, isTablet } = useScreen()
-
-  const itemsPerView = useMemo(() => {
-    if (isMobile) return 2
-    if (isTablet) return 4
-    return 6
-  }, [isMobile, isTablet])
-
+export default function ProductList({ products, hasSidebar = false }: Readonly<IProductListProps>) {
   return (
-    <>
-      <div className={clsx('grid gap-4 p-4', `grid-cols-${itemsPerView}`)}>
+    <div className="flex flex-col">
+      <div
+        className={clsx(
+          'grid gap-4 p-4 grid-cols-2 sm:grid-cols-4 ',
+          hasSidebar ? 'lg:grid-cols-5' : 'lg:grid-cols-6',
+        )}
+      >
         {products && products.length > 0 ? (
           products.map((product) => <ProductCard product={product} key={product.id} />)
         ) : (
@@ -31,13 +29,14 @@ export default function ProductList({ products }: Readonly<IProductListProps>) {
           </div>
         )}
       </div>
-      <div>
+
+      <div className="p-4">
         <PaginationComponent
           totalPages={10}
           currentPage={1}
-          onPageChange={() => console.log(`hello world`)}
+          onPageChange={() => console.log('hello world')}
         />
       </div>
-    </>
+    </div>
   )
 }

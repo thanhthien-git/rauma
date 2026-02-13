@@ -1,5 +1,6 @@
 export interface IQuickCart {
-  productId: string;
-  product: string;
-  price: number;
+  productId: string
+  product: string
+  price: number
+  url?: string
 }

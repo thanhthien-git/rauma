@@ -17,7 +17,9 @@ export default function SiteLayout({
   const dispatch = useAppDispatch()
   const { isLoading } = useAppSelector((state) => state.loading)
   const pathname = usePathname()
-  const isProductPage = pathname.startsWith('/product/')
+  const hiddenHeaderPaths = ['/cart', '/checkout', '/order']
+
+  const shouldHideHeader = hiddenHeaderPaths.some((path) => pathname.startsWith(path))
 
   useEffect(() => {
     dispatch(setLoading(true))
@@ -30,13 +32,11 @@ export default function SiteLayout({
   }, [pathname, dispatch])
   return (
     <div className="flex flex-col">
-      <header className={clsx('sticky top-0 z-50 bg-white shadow', isProductPage && 'hidden')}>
+      <header className={clsx('sticky top-0 z-50 bg-white shadow', shouldHideHeader && 'hidden')}>
         <ClientHeader />
       </header>
 
-      <main className="container mx-auto flex-1 p-0 md:p-4">
-        {isLoading ? <LogoLoader /> : children}
-      </main>
+      <main className="container mx-auto flex-1 p-0 ">{isLoading ? <LogoLoader /> : children}</main>
     </div>
   )
 }
